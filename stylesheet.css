@@ -1,0 +1,82 @@
+#all {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#info {
+  font-family: monospace;
+  font-size: 18px;
+  position: relative;
+  width: 400px;
+}
+
+#info > div {
+  color: green;
+}
+
+#info > #left {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+}
+
+#info > #right {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#restart,
+#pause {
+  right: 0;
+  cursor: pointer;
+  text-align: end;
+}
+
+#restart:hover,
+#pause:hover {
+  text-decoration: underline;
+}
+
+#main {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  outline: 1px solid black;
+}
+
+.snake {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: green;
+}
+
+#head {
+  background: rgb(6, 89, 6);
+}
+
+#food {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: darkred;
+}
+
+#game-over {
+  position: absolute;
+  display: none;
+  color: black;
+  position: fixed;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(246, 248, 235, 0.8);
+  text-align: center;
+  font-family: monospace;
+  font-size: 30px;
+}
