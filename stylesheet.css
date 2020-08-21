@@ -41,6 +41,15 @@
   text-decoration: underline;
 }
 
+.disabled {
+  cursor: auto !important;
+  color: lightGrey !important;
+}
+
+.disabled:hover {
+  text-decoration: none !important;
+}
+
 #main {
   position: relative;
   width: 400px;

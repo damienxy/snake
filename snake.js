@@ -185,6 +185,7 @@ function updateLevel() {
 
 function togglePause() {
   pause = !pause;
+  pause ? (pauseElem.innerHTML = 'Continue') : (pauseElem.innerHTML = 'Pause');
 }
 
 function isInside(snakeFront) {
@@ -213,9 +214,16 @@ function doesNotTouch(snakeFront) {
   return false;
 }
 
+function disablePauseElement() {
+  pauseElem.removeEventListener('click', togglePause);
+  pauseElem.classList.add('disabled');
+}
+
 function gameOver() {
   clearInterval(gameInterval);
   gameOverElem.style.display = 'block';
+  disablePauseElement();
+
   document.removeEventListener('keydown', keyAction);
   if (score > highscore) {
     localStorage.setItem('highscore', score);
