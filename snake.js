@@ -6,6 +6,8 @@ const scoreCount = document.getElementById('score-count');
 const highscoreCount = document.getElementById('highscore-count');
 const restart = document.getElementById('restart');
 const pauseElem = document.getElementById('pause');
+const instructions = document.getElementById('instructions');
+const instructionText = document.getElementById('instruction-text');
 const gameOverElem = document.getElementById('game-over');
 
 const gameDimensions = 400;
@@ -55,12 +57,9 @@ let lastKeyPress = new Date();
 let currentDirections = [39];
 
 document.addEventListener('keydown', keyAction);
-
-restart.addEventListener('click', () => {
-  location.reload();
-});
-
+restart.addEventListener('click', () => location.reload());
 pauseElem.addEventListener('click', togglePause);
+instructions.addEventListener('click', toggleInstructions);
 
 function startGame() {
   highscore = localStorage.getItem('highscore');
@@ -82,6 +81,7 @@ function autoMove() {
 }
 
 function keyAction(e) {
+  e.preventDefault();
   const key = e.keyCode;
   const lastDirection = currentDirections[currentDirections.length - 1];
   if (e.keyCode === 32) {
@@ -186,6 +186,11 @@ function updateLevel() {
 function togglePause() {
   pause = !pause;
   pause ? (pauseElem.innerHTML = 'Continue') : (pauseElem.innerHTML = 'Pause');
+}
+
+function toggleInstructions() {
+  const isVisible = instructionText.style.display === 'block';
+  instructionText.style.display = isVisible ? 'none' : 'block';
 }
 
 function isInside(snakeFront) {
